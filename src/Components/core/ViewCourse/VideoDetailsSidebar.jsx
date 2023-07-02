@@ -40,11 +40,12 @@ const VideoDetailsSidebar = ({setReviewModal}) => {
     
 
   return (
-    <div className={ `${showSidebar?"w-7 h-80":""} relative offSidebar3 transition-all duration-500 origin-right h-[calc(100vh-3.5rem)]`}>
-      <div className={`${showSidebar?"":"hidden"} w-7 bg-richblack-800 h-80 md:hidden`}>
-      <FaAngleDoubleRight onClick={()=>{setShowSidebar(!showSidebar);}} className={` md:hidden z-10 cursor-pointer text-2xl text-richblack-900 m-2 bg-richblack-100 rounded-full p-1 absolute -left-[5px] `} />
+    <>
+     <div className={`${showSidebar?"":"hidden"} w-6 h-72 md:hidden relative`}>
+      <FaAngleDoubleRight onClick={()=>{setShowSidebar(!showSidebar);console.log(showSidebar)}} className={` md:hidden z-10 cursor-pointer text-2xl text-richblack-900 m-2 bg-richblack-100 rounded-full p-1 absolute -left-2 `} />
       </div>
-      <div className={`${showSidebar?"w-0 h-0":""} transition-all origin-right duration-500 flex h-[calc(100vh-3.5rem)] w-[320px] max-w-[350px] flex-col border-r-[1px] border-r-richblack-700 bg-richblack-800 z-20 offSidebar1`}>
+    <div className={ `${showSidebar?"h-0 w-0":"h-[calc(100vh-3.5rem)] w-[320px]"} transition-all duration-700 `}>
+      <div className={`${showSidebar?"hidden":""} transition-all origin-right duration-500 flex h-[calc(100vh-3.5rem)] w-[320px] max-w-[350px] flex-col border-r-[1px] border-r-richblack-700 bg-richblack-800 z-20 offSidebar1`}>
         <div className={`${showSidebar?"hidden":""} mx-5   flex flex-col items-start justify-between gap-2 gap-y-4 border-b border-richblack-600 py-5 text-lg font-bold text-richblack-25 offSidebar2`}>
           <div className='flex w-full items-center justify-between '>
             <div className='flex h-[35px] w-[35px] items-center justify-center rounded-full bg-richblack-100 p-1 text-richblack-700 hover:scale-90'>
@@ -62,7 +63,7 @@ const VideoDetailsSidebar = ({setReviewModal}) => {
             </p>
           </div>
         </div>
-        <div className={`${showSidebar?"hidden":""} h-[calc(100vh - 5rem)] overflow-y-auto px-2 offSidebar2`}>
+        <div className='h-[calc(100vh - 5rem)] overflow-y-auto px-2'>
           {
             courseSectionData?.map((section, index) => (
               <details key={index} className=' appearance-none text-richblack-5 detailanimatation'>
@@ -100,6 +101,7 @@ const VideoDetailsSidebar = ({setReviewModal}) => {
         </div>
       </div>
     </div>
+    </>
   )
 }
 
