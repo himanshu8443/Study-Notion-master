@@ -44,8 +44,8 @@ const VideoDetailsSidebar = ({setReviewModal}) => {
      <div className={`${showSidebar?"":"hidden"} w-6 h-72 md:hidden relative`}>
       <FaAngleDoubleRight onClick={()=>{setShowSidebar(!showSidebar);console.log(showSidebar)}} className={` md:hidden z-10 cursor-pointer text-2xl text-richblack-900 m-2 bg-richblack-100 rounded-full p-1 top-3 absolute -left-1 `} />
       </div>
-    <div className={ `${showSidebar?"h-0 w-0":"h-[calc(100vh-3.5rem)] w-[320px]"} transition-all duration-700 `}>
-      <div className={`${showSidebar?"hidden":""} transition-all origin-right duration-500 flex h-[calc(100vh-3.5rem)] w-[320px] max-w-[350px] flex-col border-r-[1px] border-r-richblack-700 bg-richblack-800 z-20 offSidebar1`}>
+    <div className={ `${showSidebar?"h-0 w-0":"h-[calc(100vh-3.5rem)] w-[320px]"} transition-all duration-700 z-20 relative `}>
+      <div className={`${showSidebar?"hidden":""} transition-all origin-right duration-500 flex h-[calc(100vh-3.5rem)] w-[320px] max-w-[350px] flex-col border-r-[1px] border-r-richblack-700 bg-richblack-800 offSidebar1`}>
         <div className={`${showSidebar?"hidden":""} mx-5   flex flex-col items-start justify-between gap-2 gap-y-4 border-b border-richblack-600 py-5 text-lg font-bold text-richblack-25 offSidebar2`}>
           <div className='flex w-full items-center justify-between '>
             <div className='flex h-[35px] w-[35px] items-center justify-center rounded-full bg-richblack-100 p-1 text-richblack-700 hover:scale-90'>
@@ -99,8 +99,9 @@ const VideoDetailsSidebar = ({setReviewModal}) => {
             ))
           }
         </div>
-      </div>
+      </div>     
     </div>
+    <div onClick={()=>{setShowSidebar(true)}} className={`${showSidebar?"hidden":""} fixed top-0 left-0 w-full h-full bg-richblack-900 bg-opacity-50 z-10 offSidebar3`}></div>
     </>
   )
 }
