@@ -2,9 +2,8 @@
 
 Study Notion is an ED Tech (Education Technology) web application developed using the MERN stack.
 
-## Usage
 
-This starter pack includes a basic setup for using **Tailwind CSS with React**. To start building your own components and styles, follow these steps:
+## Installation
 
 1. Clone the repository to your local machine.
     ```sh
