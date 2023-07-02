@@ -267,7 +267,7 @@ const CourseDetails = () => {
             {/* Reviews */}
             <div className='mx-auto box-content px-4 text-start text-richblack-5 lg:w-[1260px]'>
                 <div className='mx-auto max-w-maxContentTab lg:mx-0 xl:max-w-[990px]'>
-                    <div className='my-8 border border-richblack-600 p-8'>
+                    <div className='my-8 border border-richblack-600 p-3 md:p-8'>
                         <p className='text-3xl font-semibold'>
                             Reviews
                         </p>
@@ -284,18 +284,18 @@ const CourseDetails = () => {
                                 </div>
                                 {
                                     courseDetail?.ratingAndReviews?.map((item, index) => (
-                                        <div key={index} className='flex items-baseline gap-4 my-4 mt-10'>
+                                        <div key={index} className='flex flex-col md:items-baseline gap-3 my-4 mt-12 ga'>
                                             <div className='flex items-center gap-2'>
                                                 <img src={item?.user?.image} alt="user img" className='w-[30px] h-[30px] rounded-full object-cover'/>
                                                 <div className='flex flex-col'>
-                                                    <p className='text-xl font-semibold'>{item?.user?.firstName} {item?.user?.lastName}</p>
+                                                    <p className='md:text-xl min-w-max font-semibold'>{item?.user?.firstName} {item?.user?.lastName}</p>
                                                 </div>
                                             </div>
                                             <div className='flex flex-col gap-2'>
                                                 <div className='flex items-center gap-2'>
                                                     <RatingStars Review_Count={item?.rating}/>
                                                 </div>
-                                                <p className='text-richblack-50 max-w-3xl'>{item?.review}</p>
+                                                <p className='text-richblack-50 text-[12px] md:text-sm max-w-4xl'>{item?.review}</p>
                                             </div>
                                         </div>
                                     ))
