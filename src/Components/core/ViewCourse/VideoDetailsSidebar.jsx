@@ -40,8 +40,8 @@ const VideoDetailsSidebar = ({setReviewModal}) => {
     
 
   return (
-    <div className={ `${showSidebar?"w-7 h-0":""} relative offSidebar3`}>
-      <div className={`${showSidebar?"":"hidden"} w-7 bg-richblack-800 h-72 md:hidden`}>
+    <div className={ `${showSidebar?"w-7 h-80":""} relative offSidebar3 transition-all duration-500 origin-right h-[calc(100vh-3.5rem)]`}>
+      <div className={`${showSidebar?"":"hidden"} w-7 bg-richblack-800 h-80 md:hidden`}>
       <FaAngleDoubleRight onClick={()=>{setShowSidebar(!showSidebar);}} className={` md:hidden z-10 cursor-pointer text-2xl text-richblack-900 m-2 bg-richblack-100 rounded-full p-1 absolute -left-[5px] `} />
       </div>
       <div className={`${showSidebar?"w-0 h-0":""} transition-all origin-right duration-500 flex h-[calc(100vh-3.5rem)] w-[320px] max-w-[350px] flex-col border-r-[1px] border-r-richblack-700 bg-richblack-800 z-20 offSidebar1`}>
