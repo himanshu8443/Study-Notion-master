@@ -58,14 +58,19 @@ const CourseDetails = () => {
 
     //add to cart
     const handelAddToCart = () => {
+        if(token){
         dispatch(addToCart(courseDetail));
         // console.log("handelAddToCart -> courseId", courseDetail._id)
+        }
+        else{
+            navigate('/login');
+        }
     }
 
 
     useEffect (() => {
     if(courseDetail){
-        const Enrolled = courseDetail?.studentsEnrolled?.find((student) => student === user._id);
+        const Enrolled = courseDetail?.studentsEnrolled?.find((student) => student === user?._id);
         // console.log("CourseDetails -> Enrolled", Enrolled)
         if(Enrolled){
             setAlreadyEnrolled(true);
@@ -117,7 +122,7 @@ const CourseDetails = () => {
                     <div className='flex w-full flex-col gap-4 border-y border-y-richblack-500 py-4 lg:hidden'>
                         <p className='space-x-3 pb-4 text-3xl font-semibold text-richblack-5'>
                             <span>₹{courseDetail?.price}</span></p>
-                            {ACCOUNT_TYPE.INSTRUCTOR !==user.accountType &&
+                            {ACCOUNT_TYPE.INSTRUCTOR !==user?.accountType &&
                             <>
                             {
                                 alreadyEnrolled ? <button onClick={()=>{navigate("/dashboard/enrolled-courses")}}  className='yellowButton'>Go to Course</button> : <button onClick={handelPayment} className='yellowButton'>Buy Now</button>
@@ -125,7 +130,7 @@ const CourseDetails = () => {
                             {
                                 alreadyEnrolled ? (<div></div>) : 
                                 (
-                                    cart?.find((item) => item._id === courseDetail._id) ?
+                                    cart?.find((item) => item?._id === courseDetail?._id) ?
                                     (<button onClick={()=>{navigate("/dashboard/cart")}} className='blackButton text-richblack-5'>Go to Cart</button>) :
                                     (<button onClick={handelAddToCart} className='blackButton text-richblack-5'>Add to Cart</button>)
                                 )
@@ -142,7 +147,7 @@ const CourseDetails = () => {
                                 <span>₹{courseDetail?.price}</span>
                             </div>
                             <div className='flex flex-col gap-4'>
-                                {ACCOUNT_TYPE.INSTRUCTOR !==user.accountType &&
+                                {ACCOUNT_TYPE.INSTRUCTOR !==user?.accountType &&
                                 <>
                                 {
                                     alreadyEnrolled ? <button onClick={()=>{navigate("/dashboard/enrolled-courses")}} className='yellowButton'>Go to Course</button> : <button onClick={handelPayment} className='yellowButton'>Buy Now</button>

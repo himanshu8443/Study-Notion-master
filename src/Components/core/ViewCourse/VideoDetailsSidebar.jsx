@@ -40,7 +40,7 @@ const VideoDetailsSidebar = ({setReviewModal}) => {
     
 
   return (
-    <div className=' relative'>
+    <div className={ `${showSidebar?"w-0 h-0":""} relative`}>
       <div className={`${showSidebar?"":"hidden"} w-7 bg-richblack-800 h-72 md:hidden`}>
       <FaAngleDoubleRight onClick={()=>{setShowSidebar(!showSidebar);console.log(showSidebar)}} className={` md:hidden z-10 cursor-pointer text-2xl text-richblack-900 m-2 bg-richblack-100 rounded-full p-1 absolute -left-[5px] `} />
       </div>
