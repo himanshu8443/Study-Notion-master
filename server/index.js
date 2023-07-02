@@ -5,7 +5,7 @@ const app=express();
 const userRoutes=require('./routes/User');
 const paymentRoutes=require('./routes/Payments');
 const profileRoutes=require('./routes/Profile');
-// const CourseRoutes=require('./routes/Course');
+const CourseRoutes=require('./routes/Course');
 
 const database=require('./config/database');
 const cookieParser=require("cookie-parser")
@@ -45,7 +45,7 @@ app.use('/api/v1/payment',paymentRoutes);
 
 app.use('/api/v1/profile',profileRoutes);
 
-// app.use('/api/v1/course',CourseRoutes);
+app.use('/api/v1/course',CourseRoutes);
 
 app.use('/api/v1/contact',require('./routes/ContactUs'));
 
