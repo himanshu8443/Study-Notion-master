@@ -275,7 +275,7 @@ export const fetchInstructorCourses = async (token) => {
   try {
     const response = await apiConnector(
       "GET",
-      "http://localhost:4000/api/v1/course/getInstructorCourses",
+      GET_ALL_INSTRUCTOR_COURSES_API,
       null,
       {
         Authorisation: `Bearer ${token}`,
