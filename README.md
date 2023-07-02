@@ -2,6 +2,8 @@
 
 Study Notion is an ED Tech (Education Technology) web application developed using the MERN stack.
 
+## Note
+This project is intended as a learning tool and can be used as a sample project for educational purposes or personal projects.
 
 ## Installation
 
@@ -18,8 +20,8 @@ Study Notion is an ED Tech (Education Technology) web application developed usin
 
 3. Set up the environment variables:
 
-Create a .env file in the root directory.
-Add the required environment variables, such as database connection details, JWT secret, and any other necessary configurations.
+   Create a .env file in the root directory.
+   Add the required environment variables, such as database connection details, JWT secret, and any other necessary configurations.
 
 
 4. Start the development server.
