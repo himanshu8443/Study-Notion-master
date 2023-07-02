@@ -18,14 +18,15 @@ const RenderSteps = () => {
             title: "Course Builder",
         },
         {
-            id:3,
-            title: "Publish Course",
+            id:3,     
+            title: "Publishing Course",
         },
     ]
 
   return (
     <>
-    <div className=' flex flex-col'>
+    <div className=' flex justify-center items-center'>
+    <div className=' flex flex-col w-[calc(100vw-20%)] md:w-fit items-start'>
         <div className=' ml-10 relative mb-2 flex w-full justify-center'>
             {steps.map( (item) => (
                 <div key={item.id} className=' flex w-full justify-between'>
@@ -45,16 +46,17 @@ const RenderSteps = () => {
                 </div>
             ) )}
         </div>
-        <div className='relative mb-16 flex w-full select-none justify-start gap-14'>
+        <div className='relative mb-16 flex w-full select-none justify-between'>
             {steps.map((item) => (
                 <>
-                    <div key={item.id} className='flex min-w-[130px] flex-col items-center gap-y-2'>
-                        <p className='text-sm text-richblack-5'>{item.title}</p>
+                    <div key={item.id} className='flex md:min-w-[180px] flex-col items-start'>
+                        <p className=' ml-3 md:ml-0 text-[10px] md:text-sm text-richblack-5'>{item.title}</p>
                     </div>
                 </>
             ))}
         </div>
         </div>
+    </div>
 
         {step === 1 && <CourseInformationForm />}
         {step === 2 && <CourseBuilderForm/>}

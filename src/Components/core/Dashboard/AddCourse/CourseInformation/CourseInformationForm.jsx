@@ -274,7 +274,7 @@ const CourseInformationForm = () => {
                 editCourse && (
                     <button
                     onClick={() => dispatch(setStep(2))}
-                    className=' px-1 font-semibold rounded-md flex items-center gap-x-2 bg-richblack-300'
+                    className=' text-[10px] md:text-sm p-2 px-1 font-semibold rounded-md flex items-center gap-x-2 bg-richblack-300'
                     >
                         Continue Without Saving
                     </button>
