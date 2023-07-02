@@ -506,4 +506,8 @@ details > summary::-webkit-details-marker {
     .offSidebar2 {
       display: block !important;
     }
+    .offSidebar3{
+      width: fit-content !important;
+      height: fit-content !important; 
+    }
 }
