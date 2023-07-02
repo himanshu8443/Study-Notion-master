@@ -71,7 +71,7 @@ const CourseDetails = () => {
             setAlreadyEnrolled(true);
         }
     }
-    }, [courseDetail, user._id])
+    }, [courseDetail, user?._id])
 
 
 
