@@ -45,7 +45,7 @@ app.use('/api/v1/payment',paymentRoutes);
 
 app.use('/api/v1/profile',profileRoutes);
 
-app.use('/api/v1/course',CourseRoutes);
+// app.use('/api/v1/course',CourseRoutes);
 
 app.use('/api/v1/contact',require('./routes/ContactUs'));
 
