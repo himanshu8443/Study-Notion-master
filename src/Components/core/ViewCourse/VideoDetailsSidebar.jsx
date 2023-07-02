@@ -42,7 +42,7 @@ const VideoDetailsSidebar = ({setReviewModal}) => {
   return (
     <>
      <div className={`${showSidebar?"":"hidden"} w-6 h-72 md:hidden relative`}>
-      <FaAngleDoubleRight onClick={()=>{setShowSidebar(!showSidebar);console.log(showSidebar)}} className={` md:hidden z-10 cursor-pointer text-2xl text-richblack-900 m-2 bg-richblack-100 rounded-full p-1 absolute -left-2 `} />
+      <FaAngleDoubleRight onClick={()=>{setShowSidebar(!showSidebar);console.log(showSidebar)}} className={` md:hidden z-10 cursor-pointer text-2xl text-richblack-900 m-2 bg-richblack-100 rounded-full p-1 top-3 absolute -left-1 `} />
       </div>
     <div className={ `${showSidebar?"h-0 w-0":"h-[calc(100vh-3.5rem)] w-[320px]"} transition-all duration-700 `}>
       <div className={`${showSidebar?"hidden":""} transition-all origin-right duration-500 flex h-[calc(100vh-3.5rem)] w-[320px] max-w-[350px] flex-col border-r-[1px] border-r-richblack-700 bg-richblack-800 z-20 offSidebar1`}>
