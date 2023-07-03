@@ -52,7 +52,7 @@ exports.categoryPageDetails = async (req, res) => {
 		const selectedCategory = await Category.findById(categoryId)          //populate instuctor and rating and reviews from courses
 			.populate({path:"courses",match:{status:"Published"},populate:([{path:"instructor"},{path:"ratingAndReviews"}])})
 			.exec();
-		console.log(selectedCategory);
+		// console.log(selectedCategory);
 		// Handle the case when the category is not found
 		if (!selectedCategory) {
 			console.log("Category not found.");
