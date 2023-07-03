@@ -108,7 +108,7 @@ exports.getEnrolledCourses=async (req,res) => {
 			}
 		}
 		).populate("courseProgress").exec();
-        console.log(enrolledCourses);
+        // console.log(enrolledCourses);
         res.status(200).json({
             success: true,
             message: "User Data fetched successfully",
