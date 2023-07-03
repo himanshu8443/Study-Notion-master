@@ -1,5 +1,6 @@
 const Profile = require("../models/Profile");
 const User = require("../models/User");
+const Course = require("../models/Course");
 const { uploadImageToCloudinary } = require("../utils/imageUploader");
 // Method for updating a profile
 exports.updateProfile = async (req, res) => {
@@ -164,4 +165,34 @@ exports.updateDisplayPicture = async (req, res) => {
 
 
 
+}
+
+//instructor dashboard
+exports.instructorDashboard = async (req, res) => {
+	try {
+		const id = req.user.id;
+		const courseData = await Course.find({instructor:id});
+		const courseDetails = courseData.map((course) => {
+			totalStudents = course?.studentsEnrolled?.length;
+			totalRevenue = course?.price * totalStudents;
+			const courseStats = {
+				_id: course._id,
+				courseName: course.courseName,
+				courseDescription: course.courseDescription,
+				totalStudents,
+				totalRevenue,
+			};
+			return courseStats;
+		});
+		res.status(200).json({
+			success: true,
+			message: "User Data fetched successfully",
+			data: courseDetails,
+		});
+	} catch (error) {
+		return res.status(500).json({
+			success: false,
+			message: error.message,
+		});
+	}
 }
