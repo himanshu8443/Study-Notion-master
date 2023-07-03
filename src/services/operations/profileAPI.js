@@ -151,3 +151,37 @@ export async function deleteAccount(token,dispatch,navigate){
   }
   toast.dismiss(toastId);
 }
+
+//get instructor dashboard
+export async function getInstructorDashboard(token,dispatch){
+  // const toastId = toast.loading("Loading...");
+  dispatch(setProgress);
+  let result = []
+  try {
+    console.log("BEFORE Calling BACKEND API FOR INSTRUCTOR DASHBOARD");
+    const response = await apiConnector(
+      "GET",
+      profileEndpoints.GET_ALL_INSTRUCTOR_DASHBOARD_DETAILS_API,
+      null,
+      {
+        Authorisation: `Bearer ${token}`,
+      }
+    )
+    console.log("AFTER Calling BACKEND API FOR INSTRUCTOR DASHBOARD");
+    // console.log(
+    //   "GET_INSTRUCTOR_DASHBOARD_API API RESPONSE............",
+    //   response
+    // )
+
+    if (!response.data.success) {
+      throw new Error(response.data.message)
+    }
+    result = response.data.data;
+  } catch (error) {
+    console.log("GET_INSTRUCTOR_DASHBOARD_API API ERROR............", error)
+    toast.error("Could Not Get Instructor Dashboard")
+  }
+  dispatch(setProgress(100));
+  // toast.dismiss(toastId)
+  return result
+}

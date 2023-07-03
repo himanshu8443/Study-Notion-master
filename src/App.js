@@ -32,6 +32,7 @@ import SearchCourse from "./pages/SearchCourse";
 import ViewCourse from "./pages/ViewCourse";
 import VideoDetails from "./Components/core/ViewCourse/VideoDetails";
 import PurchaseHistory from "./Components/core/Dashboard/PurchaseHistory";
+import InstructorDashboard from "./Components/core/Dashboard/InstructorDashboard/InstructorDashboard";
 
 
 function App() {
@@ -95,6 +96,7 @@ function App() {
           <Route path="dashboard/add-course" element={<AddCourse />} />
           <Route path="dashboard/my-courses" element={<MyCourses/>} />
           <Route path="dashboard/edit-course/:courseId" element={<EditCourse />} />
+          <Route path="dashboard/instructor" element={<InstructorDashboard />} />
           </>
         )
       }
