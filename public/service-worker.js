@@ -1,7 +1,7 @@
-let catchedData = "appV1"
+let cachedData  = "appV1"
 self.addEventListener("install", (event) => {
     event.waitUntil(
-        caches.open(catchedData).then((cache) => {
+        caches.open(cachedData ).then((cache) => {
        const urls = [
         "/static/js/bundle.js",
         "/static/js/main.chunk.js",
@@ -22,7 +22,8 @@ self.addEventListener("install", (event) => {
         }
         )
     )
-})
+});
+
 self.addEventListener("fetch", (event) => {
     const requestUrl = new URL(event.request.url);
 
@@ -46,7 +47,7 @@ self.addEventListener("fetch", (event) => {
                 return resp
             }
             let requestUrl = event.request.clone();
-            fetch(requestUrl)
+             return fetch(requestUrl)
         })
     )
     }
