@@ -3,9 +3,7 @@ self.addEventListener("install", (event) => {
     event.waitUntil(
         caches.open(cachedData ).then((cache) => {
        const urls = [
-        "/static/js/bundle.js",
-        "/static/js/main.chunk.js",
-        "/static/js/0.chunk.js",
+        "/static/js/main.d83f7a38.js",
         "/index.html",
         "/index.css",
         "/static/media/banner.8e687823b1422880cc3f.mp4",
