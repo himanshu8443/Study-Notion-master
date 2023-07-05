@@ -33,6 +33,7 @@ import ViewCourse from "./pages/ViewCourse";
 import VideoDetails from "./Components/core/ViewCourse/VideoDetails";
 import PurchaseHistory from "./Components/core/Dashboard/PurchaseHistory";
 import InstructorDashboard from "./Components/core/Dashboard/InstructorDashboard/InstructorDashboard";
+import { RiWifiOffLine } from "react-icons/ri";
 
 
 function App() {
@@ -48,6 +49,16 @@ function App() {
         onLoaderFinished={() => dispatch(setProgress(0))}
       />
       <NavBar setProgress={setProgress}></NavBar>
+      {
+        !navigator.onLine && (
+          <div className="bg-red-500 flex text-white text-center p-2 bg-richblack-300 justify-center gap-2 items-center">
+            <RiWifiOffLine size={22}/>Please check your internet connection.
+            <button className="ml-2 bg-richblack-500 rounded-md p-1 px-2 text-white" onClick={() => window.location.reload()}>
+              Retry
+            </button>
+          </div>
+        )
+      }
       <ScrollToTop/>
       <Routes>
         <Route path="/" element={<Home/>}/>
