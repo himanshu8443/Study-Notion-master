@@ -2,16 +2,23 @@ let catchedData = "appV1"
 self.addEventListener("install", (event) => {
     event.waitUntil(
         caches.open(catchedData).then((cache) => {
-        cache.addAll([
-            "/static/js/bundle.js",
-            "/static/js/main.chunk.js",
-            "/static/js/0.chunk.js",
-            "/index.html",
-            "/index.css",
-            "/static/media/banner.8e687823b1422880cc3f.mp4",
-            "https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap",
-            "/",]
-            )
+       const urls = [
+        "/static/js/bundle.js",
+        "/static/js/main.chunk.js",
+        "/static/js/0.chunk.js",
+        "/index.html",
+        "/index.css",
+        "/static/media/banner.8e687823b1422880cc3f.mp4",
+        "/",]
+        for(let i=0;i<urls.length;i++){
+            try{
+            cache.add(urls[i])
+            console.log("cached",urls[i])
+            }
+            catch(err){
+                console.log(err)
+            }
+        }
         }
         )
     )
