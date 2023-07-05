@@ -4,6 +4,7 @@ self.addEventListener("install", (event) => {
         caches.open(cachedData ).then((cache) => {
        const urls = [
         "/static/js/main.d83f7a38.js",
+        "/static/css/main.836dc399.css",
         "/index.html",
         "/index.css",
         "/static/media/banner.8e687823b1422880cc3f.mp4",
