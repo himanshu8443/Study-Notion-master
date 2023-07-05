@@ -39,9 +39,11 @@ const NavBar = ({setProgress}) => {
         try {
             const result = await apiConnector("GET",categories.CATEGORIES_API);
             setsublinks(result.data.data);
+            localStorage.setItem("sublinks",JSON.stringify(result.data.data));
             
         } catch (error) {
-            console.log("could not fetch sublinks");
+            setsublinks(JSON.parse(localStorage.getItem("sublinks")));
+            // console.log("could not fetch sublinks",localStorage.getItem("sublinks"));
             console.log(error);
         }
     }
