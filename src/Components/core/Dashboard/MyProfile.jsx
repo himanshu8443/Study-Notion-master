@@ -17,14 +17,14 @@ const MyProfile = () => {
         
         {/* section 1 */}
         <div className='flex items-center justify-between rounded-md border-[1px] border-richblack-700 bg-richblack-800 p-3 md:p-8 md:px-12'>
-            <div className='flex items-center gap-x-4'>
+            <div className='flex items-center gap-x-4 '>
                 <img 
                 src={user?.image}
                 alt={`profile-${user?.firstName}`}
                 className='aspect-square w-[78px] rounded-full object-cover' />
                 <div className='space-y-1'>
                     <p className='text-lg font-semibold text-richblack-5'> {user?.firstName + " " + user?.lastName} </p>
-                    <p className='text-sm text-richblack-300'> {user?.email}</p>
+                    <p className=' text-[11px] md:text-sm text-richblack-300 max-w-[220px] break-words'> {user?.email}</p>
                 </div>
             </div>
             <div className="hidden md:block">
@@ -65,7 +65,7 @@ const MyProfile = () => {
                 
                 </div>
             </div>
-            <div className='flex max-w-[500px] justify-between'>
+            <div className='flex gap-y-5 md:flex-row flex-col max-w-[500px] justify-between'>
                 <div className='flex flex-col gap-y-5'>
                 <div>
                     <p className='mb-2 text-sm text-richblack-100'>First Name</p>
@@ -73,7 +73,7 @@ const MyProfile = () => {
                 </div>
                 <div>
                     <p className='mb-2 text-sm text-richblack-100'>Email</p>
-                    <p className='text-sm font-medium text-richblack-5'>{user?.email}</p>
+                    <p className='text-sm font-medium text-richblack-5 break-words'>{user?.email}</p>
                 </div>
                 <div>
                     <p className='mb-2 text-sm text-richblack-100'>Gender</p>

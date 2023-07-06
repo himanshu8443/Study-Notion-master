@@ -76,10 +76,10 @@ export default function CoursesTable({ courses, setCourses }) {
           ) : (
             courses?.map((course) => (
               <Tr
-                key={course._id}
-                className="flex gap-x-10 border-b border-richblack-800 px-6 py-8"
+                key={course?._id}
+                className="flex gap-x-10 border-b border-richblack-800 px-6 py-8 gap-4"
               >
-                <Td className="flex flex-1 gap-x-4">
+                <Td colSpan={1}  className="flex flex-1 gap-x-4 p-3">
                   <img
                     src={course?.thumbnail}
                     alt={course?.courseName}
@@ -90,7 +90,7 @@ export default function CoursesTable({ courses, setCourses }) {
                       {course.courseName}
                     </p>
                     <p className="text-xs text-richblack-300">
-                      {course.courseDescription.split(" ").length >
+                      {course?.courseDescription.split(" ")?.length >
                       TRUNCATE_LENGTH
                         ? course.courseDescription
                             .split(" ")
@@ -119,7 +119,7 @@ export default function CoursesTable({ courses, setCourses }) {
                 {/* <Td className="text-sm font-medium text-richblack-100">
                   6hr 30min
                 </Td> */}
-                <Td className="text-sm font-medium text-richblack-100 m-4">
+                <Td className="text-sm font-medium text-richblack-100 mb-5">
                   ₹{course.price}
                 </Td>
                 <Td className="text-sm font-medium text-richblack-100 ">
@@ -129,7 +129,7 @@ export default function CoursesTable({ courses, setCourses }) {
                       navigate(`/dashboard/edit-course/${course._id}`);
                     }}
                     title="Edit"
-                    className="px-2 transition-all duration-200 hover:scale-110 hover:text-caribbeangreen-300 mr-5 mb-4"
+                    className="px-2 transition-all duration-200 hover:scale-110 hover:text-caribbeangreen-300 mr- mb-"
                   >
                     <FiEdit2 size={20} />
                   </button>
