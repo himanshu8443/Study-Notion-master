@@ -3,8 +3,8 @@ self.addEventListener("install", (event) => {
     event.waitUntil(
         caches.open(cachedData ).then((cache) => {
        const urls = [
-        "/static/js/main.d83f7a38.js",
-        "/static/css/main.836dc399.css",
+        "/static/js/main.*.js",
+        "/static/css/main.*.css",
         "/index.html",
         "/index.css",
         "/static/media/banner.8e687823b1422880cc3f.mp4",
