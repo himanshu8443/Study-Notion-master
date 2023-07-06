@@ -7,7 +7,6 @@ self.addEventListener("install", (event) => {
         "/static/css/main.836dc399.css",
         "/index.html",
         "/index.css",
-        "/static/media/banner.8e687823b1422880cc3f.mp4",
         "/",]
         for(let i=0;i<urls.length;i++){
             try{
