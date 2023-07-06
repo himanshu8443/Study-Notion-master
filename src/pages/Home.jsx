@@ -60,7 +60,7 @@ function Home() {
                 <CTAButton active={false} linkto={"/login"} >Book a Demo</CTAButton>
             </div>
 
-            <div className='mx-3 my-12 shadow-blue-200 w-[80%] relative'>
+            <div className='mx-3 my-12 shadow-blue-200 w-[70%] relative'>
               <div className='grad2 -top-10 w-[800px]'></div>
             <video className='video'
             muted
