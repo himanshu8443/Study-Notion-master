@@ -24,7 +24,7 @@ const MyProfile = () => {
                 className='aspect-square w-[78px] rounded-full object-cover' />
                 <div className='space-y-1'>
                     <p className='text-lg font-semibold text-richblack-5'> {user?.firstName + " " + user?.lastName} </p>
-                    <p className=' text-[11px] md:text-sm text-richblack-300 max-w-[220px] break-words'> {user?.email}</p>
+                    <p className=' text-[11px] md:text-sm text-richblack-300 md:max-w-full max-w-[220px] break-words'> {user?.email}</p>
                 </div>
             </div>
             <div className="hidden md:block">
