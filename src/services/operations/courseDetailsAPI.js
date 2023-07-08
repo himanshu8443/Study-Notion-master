@@ -127,7 +127,7 @@ export const editCourseDetails = async (data, token) => {
     result = response?.data?.data
   } catch (error) {
     console.log("EDIT COURSE API ERROR............", error)
-    toast.error(error.message)
+    toast.error(error.response.data.message)
   }
   toast.dismiss(toastId)
   return result
@@ -308,7 +308,7 @@ export const deleteCourse = async (data, token) => {
     toast.success("Course Deleted")
   } catch (error) {
     console.log("DELETE COURSE API ERROR............", error)
-    toast.error(error.message)
+    toast.error(error.response.data.message)
   }
   toast.dismiss(toastId)
 }

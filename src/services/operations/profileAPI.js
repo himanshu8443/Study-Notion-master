@@ -62,7 +62,7 @@ export async function updatePfp(token,pfp){
     console.log(JSON.parse(localStorage.getItem("user")).image);
   } catch (error) {
     console.log("UPDATE_DISPLAY_PICTURE_API API ERROR............", error)
-    toast.error("Could Not Update Profile Picture")
+    toast.error(error.response.data.message);
   }
   toast.dismiss(toastId);
 }
@@ -97,7 +97,7 @@ export async function updateAdditionalDetails(token,additionalDetails){
 
   } catch (error) {
     console.log("UPDATE_ADDITIONAL_DETAILS_API API ERROR............", error)
-    toast.error("Could Not Update Additional Details")
+    toast.error(error.response.data.message)
   }
   toast.dismiss(toastId);
 }
