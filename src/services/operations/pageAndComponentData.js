@@ -20,7 +20,7 @@ export const getCatalogaPageData = async(categoryId,dispatch) => {
   }
   catch(error) {
     console.log("CATALOG PAGE DATA API ERROR....", error);
-    toast.error(error.message);
+    toast.error(error.response?.data?.message || "No Course Added Yet");
     result = error.response?.data;
   }
   // toast.dismiss(toastId);
