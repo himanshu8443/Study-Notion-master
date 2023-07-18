@@ -38,7 +38,9 @@ const NavBar = ({setProgress}) => {
     const fetchSublinks=  async ()=>{
         try {
             const result = await apiConnector("GET",categories.CATEGORIES_API);
+            if(result.data.data.length>0){
             setsublinks(result.data.data);
+            }
             localStorage.setItem("sublinks",JSON.stringify(result.data.data));
             
         } catch (error) {
@@ -156,7 +158,7 @@ const NavBar = ({setProgress}) => {
                  <div className=' flex flex-col items-end pr-4'>
                  {
                         sublinks?.length<0 ?(<div></div>):(
-                                sublinks.map((element,index)=>(
+                                sublinks?.map((element,index)=>(
                                 <Link to={`/catalog/${element?.name}`} key={index} onClick={()=>{dispatch(setProgress(30));shownav()}} className="p-2 text-sm">                                        
                                 <p className=' text-richblack-5 '>
                                 {element?.name}
@@ -186,7 +188,7 @@ const NavBar = ({setProgress}) => {
             <nav>
                 <ul className=' flex-row gap-x-6 text-richblack-25 gap-5 hidden md:flex'>
                     {
-                        NavbarLinks.map( (element, index) => (
+                        NavbarLinks?.map( (element, index) => (
                             <li key={index} >
                                 {
                                 element.title==="Catalog" ?(<div className=' flex items-center group relative cursor-pointer'>
@@ -197,7 +199,7 @@ const NavBar = ({setProgress}) => {
                                     <div className='absolute left-[50%] top-0 -z-10 h-6 w-6 translate-x-[80%] translate-y-[-40%] rotate-45 select-none rounded bg-richblack-5'></div>
                                     {
                                         sublinks?.length<0?(<div></div>):(
-                                            sublinks.map((element,index)=>(
+                                            sublinks?.map((element,index)=>(
                                                 <Link to={`/catalog/${element?.name}`} key={index} className="rounded-lg bg-transparent py-4 pl-4 hover:bg-richblack-50" onClick={()=>{dispatch(setProgress(30))}}>
                                                     <p className=''>
                                                         {element?.name}
