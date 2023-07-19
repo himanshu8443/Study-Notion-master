@@ -37,7 +37,7 @@ export function sendOtp(email, navigate) {
       navigate("/verify-email")
     } catch (error) {
       console.log("SENDOTP API ERROR............", error)
-      toast.error(error.response.data.message)
+      toast.error(error?.response?.data?.message)
       dispatch(setProgress(100));
     }
     dispatch(setLoading(false))
