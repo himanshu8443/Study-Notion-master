@@ -112,7 +112,7 @@ function Home() {
       </div>       
         <div className=' mx-auto box-content w-full max-w-maxContentTab px- py-12 lg:max-w-maxContent'>
         <h2 className='section_heading mb-6 md:text-3xl text-xl'>
-           Student are learning
+           Students are learning
         </h2>
         <CourseSlider Courses={CatalogPageData?.differentCourses}/>
       </div>       
