@@ -50,6 +50,7 @@ This project is intended as a learning tool and can be used as a sample project 
     cd Study-Notion-master
     npm install
     ```
+    
 
 3. Set up the environment variables:
 
