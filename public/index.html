@@ -1,105 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#001B22" />
+    <link rel="manifest" href="./manifest.json" />
+    <link
+      rel="shortcut icon"
+      href="./Logo-Small-Light.png"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="index.css" />
+    <title>Study Notion</title>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-FGLTECJGHX"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#001B22" />
-  <link rel="manifest" href="./manifest.json">
-  <link rel="shortcut icon" href="./Logo-Small-Light.png" type="image/x-icon">
-  <link rel="stylesheet" href="index.css">
-  <title>Study Notion</title>
-</head>
+      gtag("config", "G-FGLTECJGHX");
+    </script>
+  </head>
 
-<body>
-  <noscript>You need to enable JavaScript to run this app.</noscript>
-  <div id="root">
-    <div class="loaderdiv">
-      <div class="waviy">
-        <span style="--i:1">S</span>
-        <span style="--i:2">T</span>
-        <span style="--i:3">U</span>
-        <span style="--i:4">D</span>
-        <span style="--i:5">Y</span>
-        <span> </span>
-        <span style="--i:6">N</span>
-        <span style="--i:7">O</span>
-        <span style="--i:8">T</span>
-        <span style="--i:9">I</span>
-        <span style="--i:10">O</span>
-        <span style="--i:11">N</span>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root">
+      <div class="loaderdiv">
+        <div class="waviy">
+          <span style="--i: 1">S</span>
+          <span style="--i: 2">T</span>
+          <span style="--i: 3">U</span>
+          <span style="--i: 4">D</span>
+          <span style="--i: 5">Y</span>
+          <span> </span>
+          <span style="--i: 6">N</span>
+          <span style="--i: 7">O</span>
+          <span style="--i: 8">T</span>
+          <span style="--i: 9">I</span>
+          <span style="--i: 10">O</span>
+          <span style="--i: 11">N</span>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div id="install-prompt" class="install-prompt">
-    <div class="install-prompt-header">
-      <div class="install-prompt-header-text">
-        <h3>Install Study Notion</h3>
+    <div id="install-prompt" class="install-prompt">
+      <div class="install-prompt-header">
+        <div class="install-prompt-header-text">
+          <h3>Install Study Notion</h3>
+        </div>
+        <button id="close-button" class="close-button">X</button>
       </div>
-      <button id="close-button" class="close-button">X</button>
+      <div class="install-prompt-content">
+        <p>Install our app to access all the features!</p>
+        <button id="install-button" class="install-button">Install</button>
+      </div>
     </div>
-    <div class="install-prompt-content">
-      <p>Install our app to access all the features!</p>
-      <button id="install-button" class="install-button">Install</button>
-    </div>
-  </div>
 
-  <script>
-    let deferredPrompt;
+    <script>
+      let deferredPrompt;
 
-    function showInstallPrompt() {
-      if (deferredPrompt) {
-        deferredPrompt.prompt(); // Show the install prompt
-        deferredPrompt.userChoice.then(function (choiceResult) {
-          if (choiceResult.outcome === 'accepted') {
-            console.log('User accepted the install prompt');
-          } else {
-            console.log('User dismissed the install prompt');
+      function showInstallPrompt() {
+        if (deferredPrompt) {
+          deferredPrompt.prompt(); // Show the install prompt
+          deferredPrompt.userChoice.then(function (choiceResult) {
+            if (choiceResult.outcome === "accepted") {
+              console.log("User accepted the install prompt");
+            } else {
+              console.log("User dismissed the install prompt");
+            }
+            deferredPrompt = null; // Reset the deferredPrompt
+          });
+        }
+      }
+
+      // Add event listener to the install button
+      const installButton = document.getElementById("install-button");
+      installButton.addEventListener("click", function () {
+        showInstallPrompt();
+        document.getElementById("install-prompt").style.display = "none";
+      });
+
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", function () {
+          navigator.serviceWorker
+            .register("service-worker.js")
+            .then(function (registration) {
+              console.log(
+                "Service Worker registered with scope:",
+                registration.scope
+              );
+            })
+            .catch(function (error) {
+              console.error("Service Worker registration failed:", error);
+            });
+        });
+
+        // Move the event listener for beforeinstallprompt here
+        window.addEventListener("beforeinstallprompt", function (event) {
+          if (sessionStorage.getItem("installPrompt") === "true") {
+            return false;
           }
-          deferredPrompt = null; // Reset the deferredPrompt
+          event.preventDefault(); // Prevent the default browser install prompt
+
+          deferredPrompt = event; // Save the event for later use
+
+          // Show the custom install prompt
+          const installPrompt = document.getElementById("install-prompt");
+          installPrompt.style.display = "block";
         });
       }
-    }
-
-    // Add event listener to the install button
-    const installButton = document.getElementById('install-button');
-    installButton.addEventListener('click', function () {
-      showInstallPrompt();
-      document.getElementById("install-prompt").style.display = "none";
-    });
-
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', function () {
-        navigator.serviceWorker.register('service-worker.js')
-          .then(function (registration) {
-            console.log('Service Worker registered with scope:', registration.scope);
-          })
-          .catch(function (error) {
-            console.error('Service Worker registration failed:', error);
-          });
-      });
-
-      // Move the event listener for beforeinstallprompt here
-      window.addEventListener('beforeinstallprompt', function (event) {
-        if (sessionStorage.getItem('installPrompt') === 'true') {
-          return false;
-        }
-        event.preventDefault(); // Prevent the default browser install prompt
-
-        deferredPrompt = event; // Save the event for later use
-
-        // Show the custom install prompt
-        const installPrompt = document.getElementById('install-prompt');
-        installPrompt.style.display = 'block';
-      });
-    }
-    document.getElementById("close-button").addEventListener("click", function () {
-      document.getElementById("install-prompt").style.display = "none";
-      //dont show install prompt again
-      sessionStorage.setItem('installPrompt', 'true');
-    });
-  </script>
-</body>
-
+      document
+        .getElementById("close-button")
+        .addEventListener("click", function () {
+          document.getElementById("install-prompt").style.display = "none";
+          //dont show install prompt again
+          sessionStorage.setItem("installPrompt", "true");
+        });
+    </script>
+  </body>
 </html>
