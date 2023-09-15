@@ -27,8 +27,16 @@ app.use(
   cors({
     origin: JSON.parse(process.env.CORS_ORIGIN),
     credentials: true,
+    maxAge: 14400,
   })
 );
+
+// only allow requests from my website
+app.use((req, res, next) => {
+  const userAgent = req.get("User-Agent");
+  console.log(userAgent);
+  next();
+});
 
 app.use(
   fileUpload({
