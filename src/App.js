@@ -37,6 +37,7 @@ import { RiWifiOffLine } from "react-icons/ri";
 import AdminPannel from "./Components/core/Dashboard/AdminPannel";
 
 function App() {
+  console.log = function () {};
   const user = useSelector((state) => state.profile.user);
   const progress = useSelector((state) => state.loadingBar);
   const dispatch = useDispatch();

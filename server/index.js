@@ -31,13 +31,6 @@ app.use(
   })
 );
 
-// only allow requests from my website
-app.use((req, res, next) => {
-  const userAgent = req.get("User-Agent");
-  console.log(userAgent);
-  next();
-});
-
 app.use(
   fileUpload({
     useTempFiles: true,
