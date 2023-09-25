@@ -65,8 +65,8 @@ This project is intended as a learning tool and can be used as a sample project 
 
 3. Set up the environment variables:
 
-   Create a .env file in the root directory.
-   Add the required environment variables, such as database connection details, JWT secret, and any other necessary configurations.
+   Create a .env file in the root directory and /server
+   Add the required environment variables, such as database connection details, JWT secret, and any other necessary configurations check .env.example files for more info.
 
 
 4. Start the development server.
