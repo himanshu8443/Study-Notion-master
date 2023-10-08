@@ -41,7 +41,7 @@ function Home() {
             <Link onClick={()=>{dispatch(setProgress(100))}}  to={"/signup"}>
             <div className=' group mt-16 p-1 mx-auto rounded-full bg-richblack-800 font-bold transition-all duration-200 hover: scale-95 w-fit max-w-maxContent'>
                 <div className='flex flex-row items-center gap-2 rounded-full px-10 py-[5px] transition-all duration-200 group-hover:bg-richblack-900'>
-              <p>Become an Instrucror</p><FaArrowRight/>
+              <p>Become an Instructor</p><FaArrowRight/>
                 </div>
             </div>
             </Link>
