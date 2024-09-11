@@ -23,9 +23,13 @@ database.connect();
 app.use(express.json());
 app.use(cookieParser());
 
+const whitelist = process.env.CORS_ORIGIN
+  ? JSON.parse(process.env.CORS_ORIGIN)
+  : ["https://studynotion-master.vercel.app/"];
+
 app.use(
   cors({
-    origin: JSON.parse(process.env.CORS_ORIGIN),
+    origin: whitelist,
     credentials: true,
     maxAge: 14400,
   })
