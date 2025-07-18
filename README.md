@@ -1,3 +1,4 @@
+# Not Maintained Now
 # Study Notion
 
 Study Notion is an ED Tech (Education Technology) web application developed using the MERN stack.
@@ -24,7 +25,7 @@ This project is intended as a learning tool and can be used as a sample project 
   content quickly.
   
 * Instructor Dashboard: Instructors have access to a comprehensive dashboard to view information about their courses, students, and income. The 
- dashboard provides charts and visualizations to present data clearly and intuitively. Instructors can monitor the total number of students enrolled in 
+ dashboard provides charts and visualisations to present data clearly and intuitively. Instructors can monitor the total number of students enrolled in 
  each course, track course performance, and view their income generated from course sales.
 
   
